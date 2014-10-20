@@ -1,6 +1,6 @@
 {
-	"name": "generator-requirejs",
-	"version": "0.3.0",
+	"name": "generator-myrequirejs",
+	"version": "0.1.0",
 	"description": "A generator for Yeoman",
 	"private": true,
 	"keywords": [
@@ -9,17 +9,17 @@
 	"main": "app/index.js",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Artif3x/yeoman-generator-requirejs.git"
+		"url": "https://github.com/Artif3x/yeoman-generator-myrequirejs.git"
 	},
 	"scripts": {
 		"test": "mocha"
 	},
 	"dependencies": {
-		"yeoman-generator": "~0.13.4",
-		"chalk": "~0.2.0"
+		"yeoman-generator": "~0.17.7",
+		"chalk": "~0.5.1"
 	},
 	"devDependencies": {
-		"mocha": "~1.12.1"
+		"mocha": "*"
 	},
 	"engines": {
 		"node": ">=0.8.0"
