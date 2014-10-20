@@ -1,3 +1,5 @@
+/*jslint browser:true*/
+/*global define*/
 (function (root) {
 	'use strict';
 	// to depend on a bower installed component:
