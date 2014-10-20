@@ -5,7 +5,7 @@
 
 	var assert = require('assert');
 
-	describe('yeoman-generator-requirejs generator', function () {
+	describe('yeoman-generator-myrequirejs generator', function () {
 		it('can be imported without blowing up', function () {
 			var app = require('../app');
 			assert(app !== undefined);

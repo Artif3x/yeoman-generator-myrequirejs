@@ -1,13 +1,33 @@
-/*jslint node:true, nomen:true*/
-
 (function (root) {
 	'use strict';
+	var util = require('util');
+	var path = require('path');
+	var yeoman = require('yeoman-generator');
+	var chalk = require('chalk');
 
-	var util = require('util'),
-		path = require('path'),
-		yeoman = require('yeoman-generator'),
-		chalk = require('chalk'),
-		welcome =// welcome message
+
+	var AppGenerator = module.exports = function AppGenerator(args, options, config) {
+		yeoman.generators.Base.apply(this, arguments);
+
+		this.options = options || {};
+
+		this.on('end', function () {
+			this.installDependencies({
+				skipInstall: options['skip-install']
+			});
+		});
+
+		this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+	};
+
+	util.inherits(AppGenerator, yeoman.generators.NamedBase);
+
+	AppGenerator.prototype.askFor = function askFor() {
+
+		var cb = this.async();
+
+		// welcome message
+		var welcome =
 			'\n     _-----_' +
 			'\n    |       |' +
 			'\n    |' + chalk.red('--(o)--') + '|   .--------------------------.' +
@@ -15,29 +35,7 @@
 			'\n    ' + chalk.yellow('(') + ' _' + chalk.yellow('´U`') + '_ ' + chalk.yellow(')') + '   |   ' + chalk.yellow.bold('ladies and gentlemen!') + '  |' + '\n    /___A___\\   \'__________________________\'' +
 			'\n     ' + chalk.yellow('|  ~  |') +
 			'\n   __' + chalk.yellow('\'.___.\'') + '__' +
-			'\n ´   ' + chalk.red('`  |') + '° ' + chalk.red('´ Y') + ' `\n',
-		AppGenerator = module.exports = function AppGenerator(args, options, config) {
-			yeoman.generators.Base.apply(this, arguments);
-
-			this.options = options || {};
-
-			this.on('end', function () {
-				this.installDependencies({
-					skipInstall: options['skip-install']
-				});
-			});
-
-			this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
-		};
-
-
-	util.inherits(AppGenerator, yeoman.generators.NamedBase);
-
-	AppGenerator.prototype.askFor = function askFor() {
-
-		var cb = this.async(),
-			prompts;
-
+			'\n ´   ' + chalk.red('`  |') + '° ' + chalk.red('´ Y') + ' `\n';
 
 		console.log(welcome);
 		console.log('This comes with requirejs, jquery, and grunt all ready to go');
@@ -49,21 +47,20 @@
 			return;
 		}
 
-		prompts = [
-			{
-				name: 'appname',
-				message: 'What is the name of your app?',
-				'default': this.appname
-			}, {
-				name: 'appdescription',
-				message: 'Description:',
-				'default': 'An awesome requirejs app'
-			}
-		];
+		var prompts = [{
+			name: 'appname',
+			message: 'What is the name of your app?',
+			default: this.appname
+	  }, {
+			name: 'appdescription',
+			message: 'Description:',
+			default: 'An awesome requirejs app'
+	  }];
 
 		this.prompt(prompts, function (props) {
 			this.appname = props.appname;
 			this.appdescription = props.appdescription;
+
 
 			cb();
 		}.bind(this));
@@ -88,7 +85,7 @@
 	AppGenerator.prototype.configs = function jshint() {
 		this.copy('jshintrc', '.jshintrc');
 		this.copy('editorconfig', '.editorconfig');
-	};
+	}
 
 	AppGenerator.prototype.docs = function docs() {
 		this.copy('CONTRIBUTING.md', 'CONTRIBUTING.md');

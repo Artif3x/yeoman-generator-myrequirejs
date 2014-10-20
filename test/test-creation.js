@@ -7,14 +7,14 @@
 		helpers = require('yeoman-generator').test;
 
 
-	describe('yeoman-generator-requirejs generator', function () {
+	describe('yeoman-generator-myrequirejs generator', function () {
 		beforeEach(function (done) {
 			helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
 				if (err) {
 					return done(err);
 				}
 
-				this.app = helpers.createGenerator('requirejs:app', [
+				this.app = helpers.createGenerator('myrequirejs:app', [
 					'../../app'
 				]);
 				done();
@@ -39,4 +39,4 @@
 			});
 		});
 	});
-}());
+}(this));
