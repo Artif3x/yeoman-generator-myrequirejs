@@ -1,38 +1,31 @@
 {
-  "name": "generator-requirejs",
-  "version": "0.2.2",
-  "description": "A generator for Yeoman",
-  "keywords": [
-    "yeoman-generator"
-  ],
-  "homepage": "https://github.com/danheberden/yeoman-generator-requirejs",
-  "bugs": "https://github.com/danheberden/yeoman-generator-requirejs/issues",
-  "author": {
-    "name": "danheberden",
-    "email": "danheberden@gmail.com",
-    "url": "https://github.com/danheberden"
-  },
-  "main": "app/index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/danheberden/yeoman-generator-requirejs.git"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "dependencies": {
-    "yeoman-generator": "~0.13.4",
-    "chalk": "~0.2.0"
-  },
-  "devDependencies": {
-    "mocha": "~1.12.1"
-  },
-  "engines": {
-    "node": ">=0.8.0"
-  },
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ]
+	"name": "generator-requirejs",
+	"version": "0.3.0",
+	"description": "A generator for Yeoman",
+	"keywords": [
+		"yeoman-generator"
+	],
+	"main": "app/index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Artif3x/yeoman-generator-requirejs.git"
+	},
+	"scripts": {
+		"test": "mocha"
+	},
+	"dependencies": {
+		"yeoman-generator": "~0.13.4",
+		"chalk": "~0.2.0"
+	},
+	"devDependencies": {
+		"mocha": "~1.12.1"
+	},
+	"engines": {
+		"node": ">=0.8.0"
+	},
+	"licenses": [
+		{
+			"type": "WTFPL"
+		}
+	]
 }
