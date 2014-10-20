@@ -28,14 +28,15 @@
 			});
 
 			this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
-		},
-		cb = this.async();
+		};
+
 
 	util.inherits(AppGenerator, yeoman.generators.NamedBase);
 
 	AppGenerator.prototype.askFor = function askFor() {
 
-		
+		var cb = this.async(),
+			prompts;
 
 
 		console.log(welcome);
@@ -48,7 +49,7 @@
 			return;
 		}
 
-		var prompts = [
+		prompts = [
 			{
 				name: 'appname',
 				message: 'What is the name of your app?',
@@ -57,7 +58,8 @@
 				name: 'appdescription',
 				message: 'Description:',
 				'default': 'An awesome requirejs app'
-			}];
+			}
+		];
 
 		this.prompt(prompts, function (props) {
 			this.appname = props.appname;

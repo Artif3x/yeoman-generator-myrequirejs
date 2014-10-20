@@ -2,6 +2,7 @@
 	"name": "generator-requirejs",
 	"version": "0.3.0",
 	"description": "A generator for Yeoman",
+	"private": true,
 	"keywords": [
 		"yeoman-generator"
 	],

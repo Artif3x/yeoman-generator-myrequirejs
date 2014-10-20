@@ -1,6 +1,7 @@
 {
 	"name": "<%= _.slugify(appname) %>",
 	"description": "<%= appdescription.replace('\"', '\\"') %>",
+	"private":true,
 	"version": "0.0.0",
 	"engines": {
 		"node": ">= 0.8.0"
